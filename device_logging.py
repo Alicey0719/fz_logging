@@ -54,19 +54,15 @@ def fetch_devices():
             last_data_hash = hashlib.sha256(str(last_devices_data).encode()).hexdigest()
             
             if current_data_hash != last_data_hash:
-                # logger.info('[fz device] diff detected')
-                print('[fz device] diff detected')
+                logger.info('[fz device] diff detected')
                 for row in rows:
-                    # logger.info(row)
-                    print(row)
+                    logger.info(row)
             else:
                 logger.debug('[fz device] No diff')
         else:
-            # logger.info('[fz device] diff detected (first time)')
-            print('[fz device] diff detected (first time)')
+            logger.info('[fz device] diff detected (first time)')
             for row in rows:
-                # logger.info(row)
-                print(row)
+                logger.info(row)
         
         last_devices_data = rows
     
