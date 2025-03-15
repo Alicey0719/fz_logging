@@ -13,7 +13,9 @@ DB_PASSWORD = os.environ['DATABASE_PASSWORD']
 FZLOGGING_INTERVAL_SEC = int(os.environ.get('FZLOGGING_INTERVAL_SEC', 60))
 
 logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+    level=logging.INFO, 
+    format="%(asctime)s %(name)s: %(levelname)s %(message)s",
+    handlers=[logging.StreamHandler()] 
 )
 logger = logging.getLogger(__name__)
 
