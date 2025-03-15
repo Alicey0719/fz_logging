@@ -34,9 +34,6 @@ def fetch_devices():
             password=DB_PASSWORD,
             host=DB_HOST,
             port=DB_PORT
-
-            4
-
         )
         cursor = conn.cursor()
         
