@@ -14,7 +14,7 @@ FZLOGGING_INTERVAL_SEC = int(os.environ.get('FZLOGGING_INTERVAL_SEC', 60))
 
 logging.basicConfig(
     level=logging.INFO, 
-    format="%(levelname)s %(asctime)s %(name)s: %(message)s",
+    format="%(asctime)s %(levelname)s: %(message)s",
     handlers=[logging.StreamHandler()] 
 )
 logger = logging.getLogger(__name__)
@@ -34,6 +34,9 @@ def fetch_devices():
             password=DB_PASSWORD,
             host=DB_HOST,
             port=DB_PORT
+
+            4
+
         )
         cursor = conn.cursor()
         
