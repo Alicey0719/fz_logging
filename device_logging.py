@@ -14,7 +14,7 @@ FZLOGGING_INTERVAL_SEC = int(os.environ.get('FZLOGGING_INTERVAL_SEC', 60))
 
 logging.basicConfig(
     level=logging.INFO, 
-    format="%(message)s",
+    format="%(asctime)s %(name)s: %(levelname)s %(message)s",
     handlers=[logging.StreamHandler()] 
 )
 logger = logging.getLogger(__name__)
@@ -54,15 +54,19 @@ def fetch_devices():
             last_data_hash = hashlib.sha256(str(last_devices_data).encode()).hexdigest()
             
             if current_data_hash != last_data_hash:
-                logger.info('[fz device] diff detected')
+                # logger.info('[fz device] diff detected')
+                print('[fz device] diff detected')
                 for row in rows:
-                    logger.info(row)
+                    # logger.info(row)
+                    print(row)
             else:
                 logger.debug('[fz device] No diff')
         else:
-            logger.info('[fz device] diff detected (first time)')
+            # logger.info('[fz device] diff detected (first time)')
+            print('[fz device] diff detected (first time)')
             for row in rows:
-                logger.info(row)
+                # logger.info(row)
+                print(row)
         
         last_devices_data = rows
     
