@@ -36,7 +36,7 @@ def fetch_devices():
         cursor = conn.cursor()
         
         # get data
-        cursor.execute("SELECT * FROM devices;")
+        cursor.execute("SELECT name,remote_ip,latest_handshake,inserted_at,updated_at,persistent_keepalive,ipv4,ipv6,id,description,user_id,dns,allowed_ips FROM devices;")
         rows = cursor.fetchall()
 
         # close db
